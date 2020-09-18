@@ -1,15 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const Home = () => {
-  return (
-    <div>
-      <h1>Home!</h1>
-    </div>
-  );
-};
-
+import Home from './Home';
+import About from './About';
+import Login from './Login';
+import Signup from './Signup';
+import Navbar from './Navbar';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+  
 ReactDOM.render(
-  <Home />,
+  <Router>
+    <div>
+      <Navbar />
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+    </div>
+  </Router>,
   document.getElementById('root')
 );
